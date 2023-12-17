@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int a,b,c;
+    cin>>a>>b>>c;
+    priority_queue<int>pq;
+    pq.push(a);
+    pq.push(b);
+    pq.push(c);
+    int largest=pq.top();
+    pq.pop();
+    int sum=0;
+    sum+=(largest-pq.top());
+    largest=pq.top();
+    pq.pop();
+    sum+=(largest-pq.top());
+    cout<<sum<<endl;
+}
