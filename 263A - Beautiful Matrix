@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int arr[5][5];
+    int k,l;
+    for(int i=0;i<5;++i){
+        for(int j=0;j<5;++j){
+            cin>>arr[i][j];
+            if(arr[i][j]==1){
+                k=i;
+                l=j;
+            }
+        }
+    }
+    int sum=0;
+    if(k>2){
+        sum+=(k-2);
+    }
+    if(k<2){
+        sum+=(2-k);
+    }
+    if(l>2){
+        sum+=(l-2);
+    }
+    if(l<2){
+        sum+=(2-l);
+    }
+    cout<<sum<<endl;
+}
