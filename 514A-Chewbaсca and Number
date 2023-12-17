@@ -1,0 +1,27 @@
+#include<iostream>
+#include<vector>
+#include<stack>
+using ll=long long;
+using namespace std;
+int main(){
+    ll a;
+    cin>>a;
+    stack<ll>s;
+    while(a!=0){
+        int rem=a%10;
+        if(rem>=5){
+            rem=9-rem;
+        }
+        s.push(rem);
+        a=a/10;
+        if(a==0){
+            if(s.top()==0){
+                s.top()=9-s.top();
+            }
+        }
+    }
+    while(!s.empty()){
+        cout<<s.top();
+        s.pop();
+    }
+}
