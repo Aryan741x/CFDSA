@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        string str;
+        string o;
+        cin>>str;
+        o=str;
+        if(str.size()==1){
+            cout<<1<<endl;
+        }
+        else{
+            int i=0;
+            while(i<str.size()){
+                if(o[i]=='1'){
+                    if(str[i]=='1'){
+                        bool result=false;
+                        for(int j=i+1;j<str.size();++j){
+                            if(str[j]=='0'){
+                                result=true;
+                                str[j]='1';
+                                str[i]='0';
+                                break;
+                            }
+                        }
+                        if(!result){
+                            str.erase(i);
+                        }
+                        else{i++;}
+                    }
+                    else{i++;}
+                }
+                else{
+                    if(str[i]=='0'){
+                        bool result=false;
+                        for(int j=i;j<str.size();++j){
+                            if(str[j]=='1'){
+                                result=true;
+                                str[j]='0';
+                                str[i]='1';
+                                break;
+                            }
+                        }
+                        if(!result){
+                            str.erase(i);
+                        }
+                        else{i++;}
+                    }
+                    else{i++;}
+                }
+            }
+            cout<<o.size()-str.size()<<endl;
+        }
+    }
+}
