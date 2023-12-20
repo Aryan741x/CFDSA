@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        string str;
+        cin>>str;
+        if(str[0]=='0'){
+            cout<<-1<<endl;
+        }
+        else if(str.size()==1){
+            cout<<-1<<endl;
+        }
+        else{
+            int k=0;
+            for(int i=1;i<str.size();++i){
+                if(str[i]!='0'){
+                    break;
+                }
+                k++;
+            }
+            int temp=10;
+            int a=str[k]-48;
+            int b=0;
+            for(int i=k-1;i>=0;--i){
+                a+=(str[i]-48)*temp;
+                temp=temp*10;
+            }
+            b=str[str.size()-1]-48;
+            temp=10;
+            for(int i=str.size()-2;i>k;--i){
+                b+=(str[i]-48)*temp;
+                temp*=10;
+            }
+            if(a>=b){
+                cout<<-1<<endl;
+            }
+            else{
+                cout<<a<<" "<<b<<endl;
+            }
+        }
+    }
+}
