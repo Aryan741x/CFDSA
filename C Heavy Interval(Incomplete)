@@ -1,0 +1,41 @@
+#include<iostream>
+#include<queue>
+using namespace std;
+using ll=long long;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        priority_queue<ll>a;
+        priority_queue<ll>b;
+        priority_queue<ll,vector<ll>,greater<ll>>c;
+        priority_queue<ll>e;
+        int n;
+        cin>>n;
+        ll k;
+        for(int i=0;i<n;++i){
+            cin>>k;
+            a.push(k);
+        }
+        for(int i=0;i<n;++i){
+            cin>>k;
+            b.push(k);
+        }
+        for(int i=0;i<n;++i){
+            cin>>k;
+            c.push(k);
+        }
+        for(int i=0;i<n;++i){
+            e.push(b.top()-a.top());
+            a.pop();
+            b.pop();
+        }
+        ll sum1=0;
+        for(int i=0;i<n;++i){
+            sum1+=((e.top())*(c.top()));
+            e.pop();
+            c.pop();
+        }
+        cout<<sum1<<endl;
+    }
+}
