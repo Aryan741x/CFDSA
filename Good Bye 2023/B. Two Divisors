@@ -1,0 +1,37 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+using ll=long long;
+ll gcd(ll a,ll b){
+    while(b!=0){
+        ll temp=b;
+        b=a%b;
+        a=temp;
+    }
+    return a;
+}
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll a,b;
+        cin>>a>>b;
+        ll result=gcd(a,b);
+        ll final=a*b;
+        ll ans=final/result;
+        if(a==1){
+            cout<<b*b<<endl;
+            continue;
+        }
+        if(b==1){
+            cout<<a*a<<endl;
+            continue;
+        }
+        if(ans==b){
+           cout<<(b/a)*ans<<endl;
+        }
+        else{
+            cout<<ans<<endl;
+        }
+    }
+}
