@@ -1,0 +1,31 @@
+// Watch Online Video to understand
+#include <iostream>
+#include<math.h>
+#include<vector>
+using namespace std;
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int count=n;
+        if(n==1){
+            cout<<1<<endl;
+            continue;
+        }
+        count--;
+        cout<<"196"+string(n-3,'0')<<endl;
+        for(int i=0;i*2+3<=n;++i){
+            if(count){
+                count--;
+                cout<<"1"+string(i,'0')+"6"+string(i,'0')+"9"+string(n-(i*2+3),'0')<<endl;
+            }
+            if(count){
+                count--;
+                cout<<"9"+string(i,'0')+"6"+string(i,'0')+"1"+string(n-(i*2+3),'0')<<endl;
+            }
+        }
+    }
+    return 0;
+}
